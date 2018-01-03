@@ -1,0 +1,8 @@
+{
+  "name": "bitcoinInfo",
+  "version": "0.0.1",
+  "dependencies": {
+    "actions-on-google": "^1.7.0",
+    "request": "^2.83.0"
+  }
+}
