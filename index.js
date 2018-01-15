@@ -14,27 +14,22 @@ const EXT_TOTAL = "/q/totalbc";
 // [START bitcoinInfo]
 exports.bitcoinInfo = (req, res) => {
     const app = new App({request: req, response: res});
-    console.log(
-        "bitcoinInfoAction Request headers: " + JSON.stringify(req.headers));
-    console.log("bitcoinInfoAction Request body: " + JSON.stringify(req.body));
+    console.log(`bitcoinInfoAction Request headers: ${JSON.stringify(req.headers)}`);
+    console.log(`bitcoinInfoAction Request body: ${JSON.stringify(req.body)}`);
 
     const priceHandler = (app) => {
         request(EXT_BITCOIN_API_URL + EXT_PRICE, (error, response, body) => {
-            console.log(
-                "priceHandler response: " + JSON.stringify(response) +
-                " Body: " + body + " | Error: " + error);
-            const msg = "現在のビットコインの価格は、" + body + "アメリカドルです";
+            console.log(`priceHandler response: ${JSON.stringify(response)} Body: ${body} | Error: ${error}`);
+            const msg = `現在のビットコインの価格は、${body}アメリカドルです`;
             app.tell(msg);
         });
     };
 
     const totalHandler = (app) => {
         request(EXT_BITCOIN_API_URL + EXT_TOTAL, (error, response, body) => {
-            console.log(
-                "totalHandler response: " + JSON.stringify(response) +
-                " Body: " + body + " | Error: " + error);
+            console.log(`totalHandler response: ${JSON.stringify(response)} Body: ${body} | Error: ${error}`);
             const total = body / 100000000;
-            const msg = "現在、世界中で" + total + "億のビットコインがあります";
+            const msg = `現在、世界中で${total}億のビットコインがあります`;
             app.tell(msg);
         });
     };
