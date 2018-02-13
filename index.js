@@ -66,7 +66,7 @@ exports.bitcoinInfo = (req, res) => {
 // [END bitcoinInfo]
 
 // [START bitcoinInfo2]
-// 通貨の返還処理を追加した "bitcoinInfo2" Cloud Function の定義です。
+// 通貨の変換処理を追加した "bitcoinInfo2" Cloud Function の定義です。
 exports.bitcoinInfo2 = (req, res) => {
     // DialogflowAppのインスタンスを生成します。
     const app = new DialogflowApp({request: req, response: res});
